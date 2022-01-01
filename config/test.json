@@ -1,0 +1,7 @@
+{
+    "tokenStore": "in-memory",
+    "destroyAllTokensAtStartup": true,
+    "redis": {
+        "keyNamespace": "doorkeeper.test"
+    }
+}

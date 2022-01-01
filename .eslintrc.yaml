@@ -1,13 +1,14 @@
-root: true
+oot: true
 
 parserOptions:
+  ecmaVersion: latest
   sourceType: module
 
 extends:
+  - problems
   - eslint:recommended
-  - plugin:problems
   - plugin:import/recommended
-  - plugin:prettier/recommended
+  - prettier
 
 plugins:
   - prettier
@@ -23,9 +24,9 @@ settings:
         - .mjs
 
 rules:
-  - prettier/prettier: error
-  - no-fallthrough: off
-  - no-undef-init: off
-  - no-console: off
-  - prefer-rest-params: off
-  - eqeqeq: [2, 'smart']
+  prettier/prettier: error
+  no-fallthrough: off
+  no-undef-init: off
+  no-console: off
+  prefer-rest-params: off
+  eqeqeq: [2, 'smart']

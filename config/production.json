@@ -1,0 +1,12 @@
+{
+    "port": 6100,
+    "tokenStore": "redis",
+    "destroyAllTokensAtStartup": false,
+    "redis": {
+        "keyNamespace": "doorkeeper"
+    },
+    "keyFile": {
+        "public": "keys/public.pem",
+        "private": "keys/private.pem"
+    }
+}

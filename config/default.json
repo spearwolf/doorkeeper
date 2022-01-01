@@ -1,0 +1,14 @@
+{
+    "port": 6100,
+    "tokenStore": "redis",
+    "destroyAllTokensAtStartup": false,
+    "authKey": "Authorization",
+    "redis": {
+        "keyNamespace": "doorkeeper.development",
+        "client": "localhost"
+    },
+    "keyFile": {
+        "public": "keys/public-dev.pem",
+        "private": "keys/private-dev.pem"
+    }
+}

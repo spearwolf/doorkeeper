@@ -4,7 +4,14 @@
   "description": "node.js based http auth service using json web tokens",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prettier:check": "prettier --check ./lib doorkeeper.js",
+    "prettier:write": "prettier --write ./lib doorkeeper.js",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "lint": "run-s eslint prettier:check",
+    "fix": "run-s eslint:fix prettier:write",
+    "test": "cross-env NODE_ENV=test mocha test/*",
+    "start": "node doorkeeper.js"
   },
   "repository": {
     "type": "git",
@@ -17,14 +24,27 @@
   },
   "homepage": "https://github.com/spearwolf/doorkeeper#readme",
   "devDependencies": {
+    "chai": "^4.3.4",
+    "cross-env": "^7.0.3",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-problems": "^6.0.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
-    "jest": "^27.4.5",
+    "mocha": "^9.1.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "supertest": "^6.1.6",
     "zx": "^4.2.0"
+  },
+  "dependencies": {
+    "blueimp-md5": "^2.19.0",
+    "body-parser": "^1.19.1",
+    "colors": "^1.4.0",
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "redis": "^4.0.1"
   }
 }
