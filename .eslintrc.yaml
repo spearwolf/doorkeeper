@@ -1,0 +1,31 @@
+root: true
+
+parserOptions:
+  sourceType: module
+
+extends:
+  - eslint:recommended
+  - plugin:problems
+  - plugin:import/recommended
+  - plugin:prettier/recommended
+
+plugins:
+  - prettier
+
+env:
+  node: true
+
+settings:
+  import/resolver:
+    node:
+      extensions:
+        - .js
+        - .mjs
+
+rules:
+  - prettier/prettier: error
+  - no-fallthrough: off
+  - no-undef-init: off
+  - no-console: off
+  - prefer-rest-params: off
+  - eqeqeq: [2, 'smart']
