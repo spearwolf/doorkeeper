@@ -10,7 +10,7 @@
     "eslint:fix": "eslint . --fix",
     "lint": "run-s eslint prettier:check",
     "fix": "run-s eslint:fix prettier:write",
-    "test": "cross-env NODE_ENV=test mocha test/*",
+    "test": "zx ./scripts/testInMemory.mjs",
     "start": "node doorkeeper.js"
   },
   "repository": {
@@ -25,7 +25,6 @@
   "homepage": "https://github.com/spearwolf/doorkeeper#readme",
   "devDependencies": {
     "chai": "^4.3.4",
-    "cross-env": "^7.0.3",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-problems": "^6.0.0",
