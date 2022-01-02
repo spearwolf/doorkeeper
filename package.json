@@ -12,7 +12,7 @@
     "fix": "run-s eslint:fix prettier:write",
     "test": "zx ./scripts/testInMemory.mjs",
     "test:redis": "zx ./scripts/testRedis.mjs",
-    "test:redis:run": "docker-compose up --abort-on-container-exit --exit-code-from tests",
+    "test:redis:run": "docker-compose up --abort-on-container-exit --exit-code-from tests --remove-orphans",
     "test:all": "run-s test test:redis:run",
     "start": "node doorkeeper.js",
     "nodemon": "nodemon 'npm start'",
