@@ -1,0 +1,20 @@
+version: '2'
+services:
+
+  tests:
+    links:
+      - redis
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    volumes:
+      - .:/app
+    command: >
+      npm run test:redis
+
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./test/data/redis:/data

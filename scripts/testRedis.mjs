@@ -2,4 +2,4 @@
 
 import runTests from "./runTests.js";
 
-await runTests();
+await runTests("test-redis");
