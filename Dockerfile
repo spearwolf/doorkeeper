@@ -2,7 +2,6 @@ FROM node:16-alpine
 
 WORKDIR /app
 
-COPY config /app/config
 COPY lib /app/lib
 COPY scripts /app/scripts
 
@@ -14,9 +13,13 @@ RUN npm install
 
 ENV NODE_ENV production
 
+RUN mkdir -p /app/config
+COPY config/default.json /app/config/
+COPY config/production.json /app/config/
+
 RUN mkdir -p /app/keys
 COPY keys/private-dev.pem /app/keys/private.pem
 COPY keys/public-dev.pem /app/keys/public.pem
 
 EXPOSE 6100
-CMD npm start
+CMD npm run nodemon
