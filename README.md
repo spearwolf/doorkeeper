@@ -1,9 +1,10 @@
 # doorkeeper
 
-The doorkeeper is the web service which is responsible
-for login and token management used by other kiwoticum applications.
+A simple and unobtrusive token management service.
 
 This is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer) web service, written in javascript and built on top of [Node.js](https://nodejs.org/)
+
+As token database backend an internal _in memory store_ (development) can be used or alternatively a [redis](https://redis.io/) store (production).
 
 
 ## Table of Contents
