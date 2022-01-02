@@ -12,7 +12,11 @@
     "fix": "run-s eslint:fix prettier:write",
     "test": "zx ./scripts/testInMemory.mjs",
     "start": "node doorkeeper.js",
-    "nodemon": "nodemon 'npm start'"
+    "nodemon": "nodemon 'npm start'",
+    "docker:build": "docker build -t spearwolf/doorkeeper:latest -f Dockerfile .",
+    "docker:run": "docker run -it --rm spearwolf/doorkeeper:latest",
+    "docker:run:shell": "docker run -it --rm --entrypoint /bin/sh spearwolf/doorkeeper:latest",
+    "docker:start": "docker run -d -it --rm spearwolf/doorkeeper:latest"
   },
   "repository": {
     "type": "git",
