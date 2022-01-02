@@ -11,7 +11,8 @@
     "lint": "run-s eslint prettier:check",
     "fix": "run-s eslint:fix prettier:write",
     "test": "zx ./scripts/testInMemory.mjs",
-    "start": "node doorkeeper.js"
+    "start": "node doorkeeper.js",
+    "nodemon": "nodemon 'npm start'"
   },
   "repository": {
     "type": "git",
@@ -44,6 +45,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.15",
     "redis": "^4.0.1"
   }
 }

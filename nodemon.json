@@ -1,0 +1,5 @@
+{
+  "verbose": false,
+  "watch": ["doorkeeper.js", "lib/**/*", "config/**/*", "keys/*"],
+  "runOnChangeOnly": true
+}
