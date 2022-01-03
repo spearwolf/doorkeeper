@@ -3,10 +3,14 @@
 // http://developers.redhat.com/blog/2016/03/15/test-driven-development-for-building-apis-in-node-js-and-express/
 
 import supertest from "supertest";
-
 import app from "../lib/app.js";
+import { disconnectTokenStore } from "../lib/token/store/TokenStore.js";
 
 describe("GET /token/public.pem", () => {
+  after(async () => {
+    await disconnectTokenStore();
+  });
+
   it("should return public key file", (done) => {
     supertest(app)
       .get("/token/public.pem")

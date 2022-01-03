@@ -13,6 +13,7 @@
     "test": "zx ./scripts/testInMemory.mjs",
     "test:redis": "zx ./scripts/testRedis.mjs",
     "test:redis:run": "docker-compose up --abort-on-container-exit --exit-code-from tests --remove-orphans",
+    "redis:up": "docker-compose up --abort-on-container-exit --remove-orphans redis",
     "test:all": "run-s test test:redis:run",
     "start": "node doorkeeper.js",
     "nodemon": "nodemon 'npm start'",

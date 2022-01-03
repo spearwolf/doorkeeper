@@ -1,7 +1,7 @@
 /* eslint-env mocha */
 import supertest from "supertest";
-
 import app from "../lib/app.js";
+import { disconnectTokenStore } from "../lib/token/store/TokenStore.js";
 
 const login = (user, secret) =>
   supertest(app)
@@ -13,6 +13,10 @@ const login = (user, secret) =>
 const verifyToken = (token, status) => supertest(app).get("/token").set("Authorization", `Bearer ${token}`).expect(status);
 
 describe("DELETE /tokens", () => {
+  after(async () => {
+    await disconnectTokenStore();
+  });
+
   it("should destroy all tokens", () =>
     login("bar", "barplah").then((tokenA) =>
       verifyToken(tokenA, 200)

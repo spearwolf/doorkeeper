@@ -1,9 +1,11 @@
-version: '2'
+version: '3'
 services:
 
   tests:
     links:
-      - redis
+      - redis-test
+    depends_on:
+      - redis-test
     build:
       context: .
       dockerfile: Dockerfile.test
@@ -12,9 +14,12 @@ services:
     command: >
       npm run test:redis
 
-  redis:
+  redis-test:
     image: redis
     ports:
       - '6379:6379'
     volumes:
-      - ./test/data/redis:/data
+      - ./test/redis/data:/data
+      - ./test/redis/redis.conf:/redis.conf
+    command: >
+      redis-server /redis.conf

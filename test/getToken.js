@@ -2,22 +2,26 @@
 
 import chai from "chai";
 import supertest from "supertest";
-
 import app from "../lib/app.js";
+import { disconnectTokenStore } from "../lib/token/store/TokenStore.js";
 
 const { expect } = chai;
 
 describe("GET /token", () => {
+  after(async () => {
+    await disconnectTokenStore();
+  });
+
   it("should respond with decoded token content", (done) => {
     supertest(app)
       .post("/token")
       .send({ login: "bar", password: "foobar" })
       .expect(200)
       .end((err, res) => {
-        expect(err).to.be.null;  // eslint-disable-line
+        expect(err).to.be.null; // eslint-disable-line
 
         const token = res.text;
-        expect(token).to.be.not.empty;  // eslint-disable-line
+        expect(token).to.be.not.empty; // eslint-disable-line
 
         supertest(app)
           .get("/token")

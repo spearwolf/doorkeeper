@@ -1,9 +1,13 @@
 /* eslint-env mocha */
 import supertest from "supertest";
-
 import app from "../lib/app.js";
+import { disconnectTokenStore } from "../lib/token/store/TokenStore.js";
 
 describe("POST /token", () => {
+  after(async () => {
+    await disconnectTokenStore();
+  });
+
   it("should respond with success when login credentials sent as json data", (done) => {
     supertest(app).post("/token").send({ login: "bar", password: "foobar" }).expect(200).end(done);
   });
