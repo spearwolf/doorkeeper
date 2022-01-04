@@ -28,6 +28,8 @@ describe("GET /token", () => {
           .expect("Content-Type", /application\/json/)
           .expect((res2) => {
             expect(res2.body.sub).to.equal("bar");
+            expect(res2.body.iss).to.equal("doorkeeper");
+            expect(res2.body.toktyp).to.equal("login");
           })
           .end(done);
       });
