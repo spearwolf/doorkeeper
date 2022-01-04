@@ -19,6 +19,7 @@
     "dev": "run-s dev:redis:up watch",
     "start": "node doorkeeper.js",
     "watch": "nodemon",
+    "test:watch": "nodemon --config nodemon.test.json --exec \"npm test\"",
     "docker:build": "docker build -t spearwolf/doorkeeper:latest -f Dockerfile .",
     "docker:run": "docker run -it --rm spearwolf/doorkeeper:latest",
     "docker:run:shell": "docker run -it --rm --entrypoint /bin/sh spearwolf/doorkeeper:latest",

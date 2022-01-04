@@ -13,9 +13,7 @@ const login = (user, secret) =>
 const verifyToken = (token, status) => supertest(app).get("/token").set("Authorization", `Bearer ${token}`).expect(status);
 
 describe("DELETE /tokens", () => {
-  after(async () => {
-    await disconnectTokenStore();
-  });
+  after(disconnectTokenStore);
 
   it("should destroy all tokens", () =>
     login("bar", "barplah").then((tokenA) =>
