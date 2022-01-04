@@ -2,15 +2,8 @@
 import supertest from "supertest";
 import app from "../lib/app.js";
 import { disconnectTokenStore } from "../lib/token/store/TokenStore.js";
-
-const login = (user, secret) =>
-  supertest(app)
-    .post("/token")
-    .send({ login: user, password: secret })
-    .expect(200)
-    .then((res) => res.text);
-
-const verifyToken = (token, status) => supertest(app).get("/token").set("Authorization", `Bearer ${token}`).expect(status);
+import login from "./utils/login.js";
+import verifyToken from "./utils/verifyToken.js";
 
 describe("DELETE /tokens", () => {
   after(disconnectTokenStore);

@@ -8,9 +8,7 @@ import { disconnectTokenStore } from "../lib/token/store/TokenStore.js";
 const { expect } = chai;
 
 describe("GET /token", () => {
-  after(async () => {
-    await disconnectTokenStore();
-  });
+  after(disconnectTokenStore);
 
   it("should respond with decoded token content", (done) => {
     supertest(app)

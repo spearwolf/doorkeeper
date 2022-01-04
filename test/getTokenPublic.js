@@ -7,9 +7,7 @@ import app from "../lib/app.js";
 import { disconnectTokenStore } from "../lib/token/store/TokenStore.js";
 
 describe("GET /token/public.pem", () => {
-  after(async () => {
-    await disconnectTokenStore();
-  });
+  after(disconnectTokenStore);
 
   it("should return public key file", (done) => {
     supertest(app)
