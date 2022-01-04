@@ -22,4 +22,4 @@ COPY keys/private-dev.pem /app/keys/private.pem
 COPY keys/public-dev.pem /app/keys/public.pem
 
 EXPOSE 6100
-CMD npm run nodemon
+CMD npm exec nodemon

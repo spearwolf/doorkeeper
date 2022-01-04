@@ -1,5 +1,4 @@
 {
-  "verbose": false,
-  "watch": ["doorkeeper.js", "lib/**/*", "config/**/*", "keys/*"],
-  "runOnChangeOnly": true
+  "verbose": true,
+  "watch": ["doorkeeper.js", "lib/**/*", "config/**/*", "keys/*", "package.json", "package-lock.json", "nodemon.json"]
 }

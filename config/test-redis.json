@@ -4,7 +4,7 @@
     "redis": {
         "keyNamespace": "doorkeeper.test",
         "client": {
-            "url": "redis://redis-test"
+            "url": "redis://redis-test:16379"
         }
     }
 }

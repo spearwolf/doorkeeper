@@ -16,8 +16,6 @@ services:
 
   redis-test:
     image: redis
-    ports:
-      - '127.0.0.1:6379:6379'
     volumes:
       - ./test/redis/data:/data
       - ./test/redis/redis.conf:/redis.conf

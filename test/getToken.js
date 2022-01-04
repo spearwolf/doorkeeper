@@ -29,7 +29,7 @@ describe("GET /token", () => {
           .expect(200)
           .expect("Content-Type", /application\/json/)
           .expect((res2) => {
-            expect(res2.body.user).to.equal("bar");
+            expect(res2.body.sub).to.equal("bar");
           })
           .end(done);
       });

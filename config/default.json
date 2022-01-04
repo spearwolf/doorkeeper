@@ -1,14 +1,19 @@
 {
-    "port": 6100,
-    "tokenStore": "redis",
-    "destroyAllTokensAtStartup": false,
-    "authKey": "Authorization",
-    "redis": {
-        "keyNamespace": "doorkeeper.development",
-        "client": "localhost"
-    },
-    "keyFile": {
-        "public": "keys/public-dev.pem",
-        "private": "keys/private-dev.pem"
+  "port": 6100,
+  "tokenStore": "redis",
+  "destroyAllTokensAtStartup": false,
+  "authKey": "Authorization",
+  "redis": {
+    "keyNamespace": "doorkeeper.dev",
+    "client": {
+      "url": "redis://127.0.0.1"
     }
+  },
+  "keyFile": {
+    "public": "keys/public-dev.pem",
+    "private": "keys/private-dev.pem"
+  },
+  "jwt": {
+    "iss": "doorkeeper"
+  }
 }
