@@ -10,6 +10,10 @@ describe("POST /token", () => {
     supertest(app).post("/token").send({ login: "bar", password: "foobar" }).expect(200).end(done);
   });
 
+  it("should respond with success when login credentials are from static users file", (done) => {
+    supertest(app).post("/token").send({ login: "admin", password: "top-secret" }).expect(200).end(done);
+  });
+
   it("should respond with success when login credentials sent as form-urlencoded data", (done) => {
     supertest(app).post("/token").send("login=foo").send("password=foobar").expect(200).end(done);
   });

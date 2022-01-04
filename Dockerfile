@@ -16,6 +16,7 @@ ENV NODE_ENV production
 RUN mkdir -p /app/config
 COPY config/default.json /app/config/
 COPY config/production.json /app/config/
+COPY config/users.json /app/config/
 
 RUN mkdir -p /app/keys
 COPY keys/private-dev.pem /app/keys/private.pem

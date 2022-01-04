@@ -1,0 +1,8 @@
+{
+  "admin": {
+    "secret": "secret666"
+  },
+  "plah": {
+    "secret": "bar!"
+  }
+}

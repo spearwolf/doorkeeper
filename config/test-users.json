@@ -1,0 +1,5 @@
+{
+  "admin": {
+    "secret": "top-secret"
+  }
+}

@@ -1,7 +1,8 @@
 {
-    "tokenStore": "in-memory",
-    "destroyAllTokensAtStartup": true,
-    "redis": {
-        "keyNamespace": "doorkeeper.test"
-    }
+  "tokenStore": "in-memory",
+  "destroyAllTokensAtStartup": true,
+  "redis": {
+    "keyNamespace": "doorkeeper.test"
+  },
+  "staticUsersFile": "config/test-users.json"
 }

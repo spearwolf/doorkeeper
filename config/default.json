@@ -15,5 +15,6 @@
   },
   "jwt": {
     "iss": "doorkeeper"
-  }
+  },
+  "staticUsersFile": "config/users.json"
 }
