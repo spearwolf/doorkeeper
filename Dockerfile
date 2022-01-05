@@ -9,7 +9,7 @@ COPY package*.json /app/
 COPY doorkeeper.js /app/
 COPY nodemon.json /app/
 
-RUN npm install
+RUN npm install --only=production
 
 ENV NODE_ENV production
 
