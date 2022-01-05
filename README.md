@@ -17,8 +17,9 @@ As token database backend an internal _in memory store_ (development) can be use
    4. [Destroy All Tokens](#destroy-all-tokens)
 3. [Development Environment](#development-environment)
    1. [Setup](#setup)
-   2. [Run local server](#run-local-server)
-   3. [Build docker image](#build-docker-image)
+   2. [Testing](#testing)
+   3. [Run a local server](#run-a-local-server)
+   4. [Build docker image](#build-docker-image)
 
 
 ## Service Endpoints
@@ -81,22 +82,37 @@ As a prerequisite, you need a **node v16+** and a current **docker** environment
 $ npm install
 ```
 
+### Testing
 
-### Run local server
+Run `npm test` for running all tests from [test/*](./test/*) against a local in-memory database.
+
+Using `npm run test:redis:run` will use docker-compose to run all tests against a dockerized redis instance.
+
+Or just use `npm run test:all` to run all tests against both environments (intended for ci).
+
+For development `npm run test:watch` is meant, which _only_ test against the in-memory database, but restarts the tests every time the sources have changed. very useful for development :)
+
+> NOTE: at the moment we use _mocha_ as test runner and not _jest_ because _jest_ support for es6 imports is still experimental AND _jest_ runs incredibly slow in a docker context :(
+
+### Run a local server
 
 In order to run a local server, you need to start a redis instance:
 
 ```sh
-$ docker-compose up redis
+$ npm run dev:redis:up
 ```
 
 After that, you can start a local server with:
 
 ```sh
+$ npm start
+# .. or use:
 $ npm run watch
 ```
 
-This will start a server listening on http://localhost:6100 and restart the application when `src/` files changed.
+This will start a server listening on http://localhost:6100 and restart the application when a source file changed.
+
+> for the very lazy `npm run dev` is meant ... this starts both a redis instance and then immediately the server in watch mode
 
 
 ### Build docker image
@@ -104,7 +120,7 @@ This will start a server listening on http://localhost:6100 and restart the appl
 To create a release version and build the docker image, simply run:
 
 ```sh
-$ npm run build:docker
+$ npm run docker:build
 ```
 
-Start a docker container with `npm run docker` or run an interactive shell session via `npm run docker:sh`
+Start the docker container with `npm run docker:run` (or use `docker:start` which starts the doorkeeper service in the background) or run an interactive shell session via `npm run docker:run:shell`
