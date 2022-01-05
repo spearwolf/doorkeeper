@@ -84,15 +84,15 @@ $ npm install
 
 ### Testing
 
-Run `npm test` for running all tests from [test/*](./test/*) against a local in-memory database.
+Run `npm test` for running all tests from [test/*](test) against a local in-memory database.
 
 Using `npm run test:redis:run` will use docker-compose to run all tests against a dockerized redis instance.
 
 Or just use `npm run test:all` to run all tests against both environments (intended for ci).
 
-For development `npm run test:watch` is meant, which _only_ test against the in-memory database, but restarts the tests every time the sources have changed. very useful for development :)
+For development `npm run test:watch` is meant, which _only_ test against the in-memory database, but restarts the tests every time the sources have changed. very useful for development 😉
 
-> NOTE: at the moment we use _mocha_ as test runner and not _jest_ because _jest_ support for es6 imports is still experimental AND _jest_ runs incredibly slow in a docker context :(
+> NOTE: at the moment we use _mocha_ as test runner and not _jest_ because _jest_ support for es6 imports is still experimental AND _jest_ runs incredibly slow in a docker context 😢
 
 ### Run a local server
 
@@ -124,3 +124,7 @@ $ npm run docker:build
 ```
 
 Start the docker container with `npm run docker:run` (or use `docker:start` which starts the doorkeeper service in the background) or run an interactive shell session via `npm run docker:run:shell`
+
+
+
+have fun 🚀
