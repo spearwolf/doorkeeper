@@ -24,7 +24,7 @@ As token database backend an internal _in memory store_ (development) can be use
 
 ## Service Endpoints
 
-### Create Token
+### Create Token _aka_ LOGIN
 
 ```
 POST /token
