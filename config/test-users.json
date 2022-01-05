@@ -1,5 +1,6 @@
 {
   "admin": {
-    "secret": "top-secret"
+    "secret": "top-secret",
+    "roles": ["admin"]
   }
 }
