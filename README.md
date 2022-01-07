@@ -9,17 +9,18 @@ As token database backend an internal _in memory store_ (development) can be use
 
 ## Table of Contents
 
-1. [Table of Contents](#table-of-contents)
-2. [Service Endpoints](#service-endpoints)
-   1. [Create Token](#create-token)
-   2. [Verify Token](#verify-token)
-   3. [Get Public Token Key](#get-public-token-key)
-   4. [Destroy All Tokens](#destroy-all-tokens)
-3. [Development Environment](#development-environment)
-   1. [Setup](#setup)
-   2. [Testing](#testing)
-   3. [Run a local server](#run-a-local-server)
-   4. [Build docker image](#build-docker-image)
+- [doorkeeper](#doorkeeper)
+  - [Table of Contents](#table-of-contents)
+  - [Service Endpoints](#service-endpoints)
+    - [Create Token _aka_ LOGIN](#create-token-aka-login)
+    - [Verify Token](#verify-token)
+    - [Get Public Token Key](#get-public-token-key)
+    - [Destroy All Tokens](#destroy-all-tokens)
+  - [Development Environment](#development-environment)
+    - [Setup](#setup)
+    - [Testing](#testing)
+    - [Run a local server](#run-a-local-server)
+    - [Build docker image](#build-docker-image)
 
 
 ## Service Endpoints
@@ -48,6 +49,7 @@ GET /token
 ```
 
 Verify and return the token payload as json.
+
 You need to pass your token as header parameter: `Authorization: Bearer XYZ123`.
 Returns the token payload data as *json* object. Returns with an error (`400 Bad Request`) if the token can not be verified.
 
@@ -70,6 +72,8 @@ DELETE /tokens
 Destroy all tokens.
 
 You need to pass your token as header parameter: `Authorization: Bearer xyz123`.
+
+> SECURITY NOTE: for this call the `admin` role must be present in the token data props under the `roles` key
 
 
 ## Development Environment

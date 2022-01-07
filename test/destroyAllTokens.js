@@ -11,7 +11,7 @@ describe("DELETE /tokens", () => {
   it("should destroy all tokens", () =>
     login("bar", "barplah").then((tokenA) =>
       verifyToken(tokenA, 200)
-        .then(() => login("foo", "foobar"))
+        .then(() => login("admin", "top-secret"))
         .then((tokenB) =>
           supertest(app)
             .delete("/tokens")
@@ -19,6 +19,13 @@ describe("DELETE /tokens", () => {
             .expect(200)
             .then(() => Promise.all([verifyToken(tokenA, 400), verifyToken(tokenB, 400)])),
         ),
+    ));
+
+  it("should NOT destroy all tokens if 'admin' role is not in token", () =>
+    login("bar", "barplah").then((tokenA) =>
+      verifyToken(tokenA, 200)
+        .then(() => login("foo", "foobar"))
+        .then((tokenB) => supertest(app).delete("/tokens").set("Authorization", `Bearer ${tokenB}`).expect(400)),
     ));
 
   it("should respond with error when authorization header has an invalid token", () =>
