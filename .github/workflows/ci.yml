@@ -22,3 +22,6 @@ jobs:
 
       - name: Run tests
         run: npm test
+
+      - name: Run tests (redis)
+        run: npm run test:redis:run
