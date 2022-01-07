@@ -14,9 +14,8 @@ As token database backend an internal _in memory store_ (development) can be use
   - [Service Endpoints](#service-endpoints)
     - [Create Token _aka_ LOGIN](#create-token-aka-login)
     - [Verify Token](#verify-token)
-    - [Get Public Token Key](#get-public-token-key)
     - [Destroy All Tokens](#destroy-all-tokens)
-  - [Development Environment](#development-environment)
+  - [Development](#development)
     - [Setup](#setup)
     - [Testing](#testing)
     - [Run a local server](#run-a-local-server)
@@ -25,22 +24,25 @@ As token database backend an internal _in memory store_ (development) can be use
 
 ## Service Endpoints
 
+---
+
 ### Create Token _aka_ LOGIN
 
 ```
 POST /token
 ```
 
-| parameter | description |
-|-----------|-------------|
-| `login` | login id |
-| `password` | login secret |
+| parameter | type | in | description |
+|-----------|------|----|-------------|
+| `login` | string | body | login id |
+| `password` | string | body | login secret |
 
 Create a new token. You will need to send the `login` and `password` parameters.
 The service will accept the parameters only as _form_ or _json_ encoded body data.
 
 Returns a _signed_ [jwt token](https://jwt.io/).
 
+---
 
 ### Verify Token
 
@@ -51,17 +53,14 @@ GET /token
 Verify and return the token payload as json.
 
 You need to pass your token as header parameter: `Authorization: Bearer XYZ123`.
+
+| parameter | type | in | description |
+|-----------|------|----|-------------|
+| `Authorization` | string | header | jwt token |
+
 Returns the token payload data as *json* object. Returns with an error (`400 Bad Request`) if the token can not be verified.
 
-
-### Get Public Token Key
-
-```
-GET /token/public.pem
-```
-
-Get the public key which is needed if you want to verify the signed token by yourself.
-
+---
 
 ### Destroy All Tokens
 
@@ -73,10 +72,15 @@ Destroy all tokens.
 
 You need to pass your token as header parameter: `Authorization: Bearer xyz123`.
 
+| parameter | type | in | description |
+|-----------|------|----|-------------|
+| `Authorization` | string | header | jwt token |
+
 > :warning: SECURITY NOTE: for this api call the `admin` role must be present in the token data props under the `roles` key!
 
+---
 
-## Development Environment
+## Development
 
 ### Setup
 
