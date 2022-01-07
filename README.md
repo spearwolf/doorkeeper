@@ -73,7 +73,7 @@ Destroy all tokens.
 
 You need to pass your token as header parameter: `Authorization: Bearer xyz123`.
 
-> SECURITY NOTE: for this call the `admin` role must be present in the token data props under the `roles` key
+> :warning: SECURITY NOTE: for this api call the `admin` role must be present in the token data props under the `roles` key!
 
 
 ## Development Environment
@@ -88,15 +88,15 @@ $ npm install
 
 ### Testing
 
-Run `npm test` for running all tests from [test/*](test) against a local in-memory database.
+Run `npm test` for running all tests from [test/*](test) against the local in-memory database.
 
-Using `npm run test:redis:run` will use docker-compose to run all tests against a dockerized redis instance.
+Using `npm run test:redis:run` will use *docker-compose* to run all tests against a dockerized redis instance.
 
 Or just use `npm run test:all` to run all tests against both environments (intended for ci).
 
 For development `npm run test:watch` is meant, which _only_ test against the in-memory database, but restarts the tests every time the sources have changed. very useful for development 😉
 
-> NOTE: at the moment we use _mocha_ as test runner and not _jest_ because _jest_ support for es6 imports is still experimental AND _jest_ runs incredibly slow in a docker context 😢
+> :point_right: NOTE: at the moment we use _mocha_ as test runner and not _jest_ because _jest_ support for native es6 imports is still experimental AND _jest_ runs incredibly slow in a docker context 😢
 
 ### Run a local server
 
