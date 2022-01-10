@@ -9,17 +9,30 @@ As token database backend an internal _in memory store_ (development) can be use
 
 ## Table of Contents
 
-- [doorkeeper](#doorkeeper)
-  - [Table of Contents](#table-of-contents)
-  - [Service Endpoints](#service-endpoints)
-    - [Create Token _aka_ LOGIN](#create-token-aka-login)
-    - [Verify Token](#verify-token)
-    - [Destroy All Tokens](#destroy-all-tokens)
-  - [Development](#development)
-    - [Setup](#setup)
-    - [Testing](#testing)
-    - [Run a local server](#run-a-local-server)
-    - [Build docker image](#build-docker-image)
+1. [Table of Contents](#table-of-contents)
+2. [How it works](#how-it-works)
+   1. [Login via password](#login-via-password)
+   2. [Create session token](#create-session-token)
+3. [Service Endpoints](#service-endpoints)
+   1. [Create Token _aka_ LOGIN](#create-token-aka-login)
+   2. [Verify Token](#verify-token)
+   3. [Destroy All Tokens](#destroy-all-tokens)
+4. [Development](#development)
+   1. [Setup](#setup)
+   2. [Testing](#testing)
+   3. [Run a local server](#run-a-local-server)
+   4. [Build docker image](#build-docker-image)
+
+
+## How it works
+
+### Login via password
+
+![Login via password](./docs/login_via_password.svg)
+
+### Create session token
+
+![Create session token](./docs/create_session_token.svg)
 
 
 ## Service Endpoints
