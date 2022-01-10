@@ -5,6 +5,7 @@
   "type": "module",
   "main": "doorkeeper.js",
   "scripts": {
+    "postprepare": "node scripts/generate-ssl-keys.js --silent keys/public.pem keys/private.pem top-secret",
     "prettier:check": "prettier --check ./lib doorkeeper.js",
     "prettier:write": "prettier --write ./lib doorkeeper.js",
     "eslint": "eslint .",
