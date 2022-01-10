@@ -10,8 +10,9 @@
     }
   },
   "keyFile": {
-    "public": "keys/public-dev.pem",
-    "private": "keys/private-dev.pem"
+    "public": "keys/public.pem",
+    "private": "keys/private.pem",
+    "passphrase": "top-secret"
   },
   "jwt": {
     "iss": "doorkeeper"
