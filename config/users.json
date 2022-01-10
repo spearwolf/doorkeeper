@@ -1,9 +1,13 @@
 {
   "admin": {
     "secret": "secret666",
-    "roles": ["admin"]
+    "roles": ["admin"],
+    "displayName": "admin",
+    "uid": "94b980b7-5307-47d7-a6db-4a33d1c3e1e2"
   },
   "plah": {
-    "secret": "bar!"
+    "secret": "bar!",
+    "displayName": "plah",
+    "uid": "0c516e57-57b9-4232-9398-51b170fb408c"
   }
 }
