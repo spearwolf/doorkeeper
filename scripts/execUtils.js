@@ -28,5 +28,7 @@ export const exec = async (...args) => {
 
 export const NPM_CMD = platform.startsWith("win") ? "npm.cmd" : "npm";
 
-export const npmRun = async (cmd, ...args) => exec(NPM_CMD, "run", cmd, ...(args.length > 0 ? ["--", ...args] : []));
-export const npmExec = async (cmd, ...args) => exec(NPM_CMD, "exec", cmd, ...(args.length > 0 ? ["--", ...args] : []));
+export const npmRun = async (cmd, ...args) =>
+  exec(NPM_CMD, "run", cmd, ...(args.length > 0 ? ["--", ...args] : []));
+export const npmExec = async (cmd, ...args) =>
+  exec(NPM_CMD, "exec", cmd, ...(args.length > 0 ? ["--", ...args] : []));

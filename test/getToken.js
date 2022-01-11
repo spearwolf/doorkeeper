@@ -12,14 +12,14 @@ describe("GET /token", () => {
 
   it("should respond with decoded token content", (done) => {
     supertest(app)
-      .post("/token")
+      .post("/token/login")
       .send({ login: "bar", password: "foobar" })
       .expect(200)
       .end((err, res) => {
-        expect(err).to.be.null; // eslint-disable-line
+        expect(err).to.be.null;
 
         const token = res.text;
-        expect(token).to.be.not.empty; // eslint-disable-line
+        expect(token).to.be.not.empty;
 
         supertest(app)
           .get("/token")
