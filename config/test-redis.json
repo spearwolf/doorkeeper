@@ -2,10 +2,10 @@
   "tokenStore": "redis",
   "destroyAllTokensAtStartup": true,
   "redis": {
-    "keyNamespace": "doorkeeper.test",
     "client": {
       "url": "redis://redis-test:16379"
-    }
+    },
+    "namespace": "doorkeeper.test"
   },
   "staticUsersFile": "config/test-users.json"
 }
