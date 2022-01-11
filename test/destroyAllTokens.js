@@ -25,11 +25,14 @@ describe("DELETE /tokens", () => {
     login("bar", "barplah").then((tokenA) =>
       verifyToken(tokenA, 200)
         .then(() => login("foo", "foobar"))
-        .then((tokenB) => supertest(app).delete("/tokens").set("Authorization", `Bearer ${tokenB}`).expect(400)),
+        .then((tokenB) =>
+          supertest(app).delete("/tokens").set("Authorization", `Bearer ${tokenB}`).expect(400),
+        ),
     ));
 
   it("should respond with error when authorization header has an invalid token", () =>
     supertest(app).delete("/tokens").set("Authorization", "Bearer abc123xyzfooo").expect(400));
 
-  it("should respond with error when no authorization header is passed", () => supertest(app).delete("/tokens").expect(400));
+  it("should respond with error when no authorization header is passed", () =>
+    supertest(app).delete("/tokens").expect(400));
 });
