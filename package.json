@@ -58,6 +58,8 @@
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.15",
+    "pino": "^7.6.3",
+    "pino-http": "^6.5.0",
     "redis": "^4.0.1"
   }
 }
