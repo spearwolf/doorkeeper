@@ -1,0 +1,8 @@
+destroyAllTokensAtStartup: true
+
+redis:
+  namespace: doorkeeper.test
+  client:
+    url: "redis://redis-test:16379"
+
+staticUsersFile: config/test-users.json

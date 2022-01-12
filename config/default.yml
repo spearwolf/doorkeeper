@@ -1,0 +1,28 @@
+port: 6100
+
+log:
+  pretty: true
+  httpRequests: false
+
+staticUsersFile: config/users.json
+
+tokenStore: redis
+destroyAllTokensAtStartup: false
+
+redis:
+  client:
+    url: "redis://127.0.0.1"
+  namespace: doorkeeper.dev
+  token:
+    namespace: token
+    timeToLiveInSeconds: 1209600
+
+keyFile:
+  public: keys/public.pem
+  private: keys/private.pem
+  passphrase: top-secret
+
+jwt:
+  iss: doorkeeper
+
+authKey: Authorization

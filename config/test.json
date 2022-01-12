@@ -1,8 +1,0 @@
-{
-  "tokenStore": "in-memory",
-  "destroyAllTokensAtStartup": true,
-  "redis": {
-    "namespace": "doorkeeper.test"
-  },
-  "staticUsersFile": "config/test-users.json"
-}

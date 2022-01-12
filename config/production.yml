@@ -1,0 +1,13 @@
+log:
+  pretty: false
+  httpRequests: true
+
+destroyAllTokensAtStartup: false
+
+redis:
+  namespace: doorkeeper
+
+keyFile:
+  public: keys/public.pem
+  private: keys/private.pem
+  passphrase: 'set as ENV variable DOORKEEPER_KEY_PASSPHRASE'
