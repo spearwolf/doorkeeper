@@ -2,6 +2,10 @@
   "port": 6100,
   "tokenStore": "redis",
   "destroyAllTokensAtStartup": false,
+  "log": {
+    "pretty": false,
+    "httpRequests": true
+  },
   "redis": {
     "namespace": "doorkeeper"
   },

@@ -3,6 +3,10 @@
   "tokenStore": "redis",
   "destroyAllTokensAtStartup": false,
   "authKey": "Authorization",
+  "log": {
+    "pretty": true,
+    "httpRequests": false
+  },
   "redis": {
     "client": {
       "url": "redis://127.0.0.1"
