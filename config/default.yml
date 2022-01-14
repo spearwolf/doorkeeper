@@ -28,7 +28,7 @@ jwt:
 
 token:
   login:
-    # 2 weeks (seconds) 
+    # 2 weeks (seconds)
     ttl: 1209600
     # 7 days (seconds)
     lastLoginExpire: 604800
