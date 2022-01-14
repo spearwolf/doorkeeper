@@ -15,6 +15,7 @@
     "test": "zx ./scripts/testInMemory.mjs",
     "test:redis": "zx ./scripts/testRedis.mjs",
     "test:redis:run": "docker-compose -f docker-compose.test.yml -p doorkeeper-tests up --abort-on-container-exit --exit-code-from tests --remove-orphans",
+    "test:redis:up": "docker-compose -f docker-compose.test.yml -p doorkeeper-tests up --detach redis-test",
     "test:all": "run-s test test:redis:run",
     "dev:redis:up": "docker-compose -f docker-compose.dev.yml -p doorkeeper-dev up --detach --remove-orphans redis",
     "dev": "run-s dev:redis:up watch",
