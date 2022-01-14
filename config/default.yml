@@ -15,7 +15,8 @@ redis:
   namespace: doorkeeper.dev
   token:
     namespace: token
-    timeToLiveInSeconds: 1209600
+  user:
+    namespace: user
 
 keyFile:
   public: keys/public.pem
@@ -24,5 +25,12 @@ keyFile:
 
 jwt:
   iss: doorkeeper
+
+token:
+  login:
+    # 2 weeks (seconds) 
+    ttl: 1209600
+    # 7 days (seconds)
+    lastLoginExpire: 604800
 
 authKey: Authorization
