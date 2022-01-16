@@ -2,3 +2,7 @@ tokenStore: in-memory
 destroyAllTokensAtStartup: true
 
 staticUsersFile: config/test-users.json
+
+token:
+  session:
+    expiresIn: 1s

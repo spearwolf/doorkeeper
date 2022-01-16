@@ -2,9 +2,11 @@
 import supertest from "supertest";
 import assert from "assert";
 import login from "./utils/login.js";
+import createSessionjwt from "./utils/createSessionJwt.js";
 import verifyToken from "./utils/verifyToken.js";
 import app from "../lib/app.js";
 import { disconnectTokenStore } from "../lib/token/store/TokenStore.js";
+import waitSomeSeconds from "./utils/waitSomeSeconds.js";
 
 describe("POST /token/session", () => {
   after(disconnectTokenStore);
@@ -24,5 +26,22 @@ describe("POST /token/session", () => {
     const sessionTokenContent = await verifyToken(sessionJwt, 200);
     assert.equal(sessionTokenContent.toktyp, "session");
     assert.equal(sessionTokenContent.sub, "foo");
+  });
+
+  it("session token should expire", async () => {
+    const loginJwt = await login("foo", "barfoo");
+    assert.ok(loginJwt);
+
+    const sessionJwt = await createSessionjwt(loginJwt);
+    assert.ok(sessionJwt);
+
+    const sessionTokenContent = await verifyToken(sessionJwt, 200);
+    assert.equal(sessionTokenContent.toktyp, "session");
+    assert.ok(sessionTokenContent.iat);
+
+    await waitSomeSeconds(1.25);
+
+    // since the session token should be expire after 1 second(!) the next call should return with an error response
+    await verifyToken(sessionJwt, 400);
   });
 });

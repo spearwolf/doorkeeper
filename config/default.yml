@@ -32,5 +32,8 @@ token:
     ttl: 1209600
     # 7 days (seconds)
     lastLoginExpire: 604800
+  session:
+    # https://github.com/auth0/node-jsonwebtoken#token-expiration-exp-claim
+    expiresIn: 1h
 
 authKey: Authorization
