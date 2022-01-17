@@ -8,5 +8,7 @@ redis:
 staticUsersFile: config/test-users.json
 
 token:
+  login:
+    lastLoginExpire: 1
   session:
     expiresIn: 1s

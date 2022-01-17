@@ -44,4 +44,20 @@ describe("POST /token/session", () => {
     // since the session token should be expire after 1 second(!) the next call should return with an error response
     await verifyToken(sessionJwt, 400);
   });
+
+  it("last login time must exist", async () => {
+    const loginJwt = await login("foo", "barfoo");
+    assert.ok(loginJwt);
+
+    const sessionJwt = await createSessionjwt(loginJwt);
+    assert.ok(sessionJwt);
+
+    await waitSomeSeconds(1.5);
+
+    // since the last login time expire after 1 second(!) the next call should return with an error response
+    await supertest(app)
+      .post("/token/session")
+      .set({ Authorization: `Bearer ${loginJwt}` })
+      .expect(400);
+  });
 });
