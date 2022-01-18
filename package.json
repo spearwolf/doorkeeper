@@ -5,7 +5,10 @@
   "type": "module",
   "main": "doorkeeper.js",
   "scripts": {
-    "postprepare": "node scripts/generate-ssl-keys.js --silent keys/public.pem keys/private.pem top-secret",
+    "postprepare": "run-s --silent generate-ssl-keys pull-mermaid",
+    "generate-ssl-keys": "node scripts/generate-ssl-keys.js --silent keys/public.pem keys/private.pem top-secret",
+    "pull-mermaid": "docker pull minlag/mermaid-cli",
+    "generate-diagrams": "zx ./scripts/generateMermaidDiagrams.mjs",
     "prettier:check": "prettier --check ./lib doorkeeper.js",
     "prettier:write": "prettier --write ./lib doorkeeper.js",
     "eslint": "eslint .",

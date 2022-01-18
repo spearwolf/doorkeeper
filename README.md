@@ -28,7 +28,7 @@ As token database backend an internal _in memory store_ (development) can be use
 
 ### Login via password
 
-![Login via password](./docs/login_via_password.svg)
+![Login via password](./docs/login-via-password.mmd.svg)
 
 ### Create session token
 
