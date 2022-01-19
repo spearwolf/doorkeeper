@@ -5,10 +5,11 @@
   "type": "module",
   "main": "doorkeeper.js",
   "scripts": {
-    "postprepare": "run-s --silent generate-ssl-keys pull-mermaid",
+    "postprepare": "run-s --silent generate-ssl-keys",
     "generate-ssl-keys": "node scripts/generate-ssl-keys.js --silent keys/public.pem keys/private.pem top-secret",
     "pull-mermaid": "docker pull minlag/mermaid-cli",
     "generate-diagrams": "zx ./scripts/generateMermaidDiagrams.mjs",
+    "mermaid-cli": "zx ./scripts/mermaidCli.mjs",
     "prettier:check": "prettier --check ./lib doorkeeper.js",
     "prettier:write": "prettier --write ./lib doorkeeper.js",
     "eslint": "eslint .",
@@ -54,7 +55,6 @@
     "zx": "^4.2.0"
   },
   "dependencies": {
-    "blueimp-md5": "^2.19.0",
     "body-parser": "^1.19.1",
     "colors": "^1.4.0",
     "config": "^3.3.6",

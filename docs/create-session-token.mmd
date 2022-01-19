@@ -1,0 +1,21 @@
+sequenceDiagram
+
+autonumber
+
+actor client
+
+client->>+doorkeeper: hej doorkeeper,<br>i want a session token!
+Note right of client: POST /token/session<br>Authorization: Bearer XYZ123
+
+activate doorkeeper
+
+doorkeeper->>doorkeeper: verify login token
+
+doorkeeper->>+store: do we know about this token?
+doorkeeper->>store: last login in recent time?
+store-->>doorkeeper: yes, all is fine
+doorkeeper->>store: please, update the last login time
+
+doorkeeper-->>-client: okay, here is your session token!
+Note left of doorkeeper: 200 OK<br>Content-Type: application/jwt
+

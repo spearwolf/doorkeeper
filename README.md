@@ -32,7 +32,7 @@ As token database backend an internal _in memory store_ (development) can be use
 
 ### Create session token
 
-![Create session token](./docs/create_session_token.svg)
+![Create session token](./docs/create-session-token.mmd.svg)
 
 
 ## Service Endpoints
