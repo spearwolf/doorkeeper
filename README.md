@@ -10,6 +10,7 @@ As token database backend an internal _in memory store_ (development) can be use
 
 This micro service is intended as a starting point for the development of distributed web apps/services that need token-based verification. the architecture is designed in such a way that further required code logic can be easily inserted in many places.
 
+Another design decision in the architecture of the service is the _principle of minimalism_. as little as possible is written into the database and if e.g. a token expires, it is also deleted from the database. this also applies to the logging (there are really only a few meaningful outputs in the production log) and no detailed error messages are sent to the client (this also ultimately benefits security).
 
 ## Table of Contents
 
