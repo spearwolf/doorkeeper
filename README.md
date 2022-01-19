@@ -43,7 +43,7 @@ When generating a session token based on a login token, the content of the login
 > NOTE: The current implementation of the doorkeeper service uses a simple `users.json` file as user database (at this point the developer is encouraged to add more enhanced user providers and extended login-is-valid verifications :wink:)
 
 The goal of the whole procedure is to give the client a valid session token that can be used to access other api calls from your actual web app services.
-The session token contains for example the user id `uid`, the `displayName` and `roles`, these properties can be used by other services for authorization.
+The session token contains the `uid`, `displayName` and `roles`, these properties can be used by other services for authorization.
 
 To decode and verify the content of the session token, the doorkeeper service is no longer necessary, this is possible from any other code, only the _public key_ of the _doorkeeper_ is needed for verification.
 
