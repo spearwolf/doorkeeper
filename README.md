@@ -6,6 +6,8 @@ This is a [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfe
 
 As token database backend an internal _in memory store_ (development) can be used or alternatively a [redis](https://redis.io/) store (production).
 
+This micro service is intended as a starting point for the development of distributed web apps/services that need token-based verification. the architecture is designed in such a way that further required code logic can be easily inserted in many places.
+
 
 ## Table of Contents
 
@@ -26,11 +28,23 @@ As token database backend an internal _in memory store_ (development) can be use
 
 ## How it works
 
-### Login via password
+The _doorkeeper_ service knows two different types of tokens. The **login token** can be generated using a valid _login id_ and a _password_. A login token can then be used to generate a **session token**. Such a session token can be used to authenticate api calls to your other web app/services.
+
+Both tokens have a limited lifetime (expiration). While the session token is usually only valid for a short time (1 hour) the login token is different, it could be valid for much longer (e.g. 6 months), but expires after 7 days if the login token is not used to generate session tokens.
+
+> NOTE: all timeouts mentioned are of course customizable
+
+In order to generate a login token, the doorkeeper service must rely on a (possibly external) user provider and on the store (a redis database).
+
+When generating a session token based on a login token, the content of the login token is trusted and it is therefore no longer necessary to ask the (possibly) external user provider for it, but the store is still accessed (of course only login tokens issued by the service itself are trusted)
+
+> NOTE: The current implementation of the doorkeeper service uses a simple `users.json` file as user database (at this point the developer is encouraged to add more enhanced user providers :wink:)
+
+### Login via Password
 
 ![Login via password](./docs/login-via-password.mmd.svg)
 
-### Create session token
+### Create Session Token
 
 ![Create session token](./docs/create-session-token.mmd.svg)
 
@@ -39,7 +53,7 @@ As token database backend an internal _in memory store_ (development) can be use
 
 ---
 
-### Create Token _aka_ LOGIN
+### Create LOGIN Token _aka_ Login via Password
 
 ```
 POST /token
