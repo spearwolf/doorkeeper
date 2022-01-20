@@ -14,19 +14,22 @@ Another design decision in the architecture of the service is the _principle of 
 
 ## Table of Contents
 
-1. [Table of Contents](#table-of-contents)
-2. [How it works](#how-it-works)
-   1. [Login via password](#login-via-password)
-   2. [Create session token](#create-session-token)
-3. [Service Endpoints](#service-endpoints)
-   1. [Create Token _aka_ LOGIN](#create-token-aka-login)
-   2. [Verify Token](#verify-token)
-   3. [Destroy All Tokens](#destroy-all-tokens)
-4. [Development](#development)
-   1. [Setup](#setup)
-   2. [Testing](#testing)
-   3. [Run a local server](#run-a-local-server)
-   4. [Build docker image](#build-docker-image)
+- [doorkeeper](#doorkeeper)
+  - [Table of Contents](#table-of-contents)
+  - [How it works](#how-it-works)
+    - [Login via Password](#login-via-password)
+    - [Create Session Token](#create-session-token)
+  - [Service Endpoints](#service-endpoints)
+    - [Routes Overview](#routes-overview)
+    - [Create Login Token _aka_ Login via Password](#create-login-token-aka-login-via-password)
+    - [Create Session Token](#create-session-token-1)
+    - [Verify Token](#verify-token)
+    - [Destroy All Tokens](#destroy-all-tokens)
+  - [Development](#development)
+    - [Setup](#setup)
+    - [Testing](#testing)
+    - [Run a local server](#run-a-local-server)
+    - [Build docker image](#build-docker-image)
 
 
 ## How it works
@@ -61,12 +64,21 @@ To decode and verify the content of the session token, the doorkeeper service is
 
 ## Service Endpoints
 
+### Routes Overview
+
+| route | method | description |
+|-------|--------|-------------|
+| `/token/login` | POST | create **login** token |
+| `/token/session` | POST | create **session** token |
+| `/token` | GET | verify token and return payload as json |
+| `/tokens` | DELETE | invalidate all login tokens |
+
 ---
 
-### Create LOGIN Token _aka_ Login via Password
+### Create Login Token _aka_ Login via Password
 
 ```
-POST /token
+POST /token/login
 ```
 
 | parameter | type | in | description |
@@ -74,8 +86,26 @@ POST /token
 | `login` | string | body | login id |
 | `password` | string | body | login secret |
 
-Create a new token. You will need to send the `login` and `password` parameters.
+Create a new login token. You will need to send the `login` and `password` parameters.
 The service will accept the parameters only as _form_ or _json_ encoded body data.
+
+Returns a _signed_ [jwt token](https://jwt.io/).
+
+---
+
+### Create Session Token
+
+```
+POST /token/session
+```
+
+| parameter | type | in | description |
+|-----------|------|----|-------------|
+| `Authorization` | string | header | login token |
+
+Create a new session token.
+
+You need to pass your login token as header parameter: `Authorization: Bearer XYZ123`.
 
 Returns a _signed_ [jwt token](https://jwt.io/).
 
@@ -89,13 +119,14 @@ GET /token
 
 Verify and return the token payload as json.
 
-You need to pass your token as header parameter: `Authorization: Bearer XYZ123`.
+You need to pass your token (this can be either a login or a session token) as header parameter: `Authorization: Bearer XYZ123`.
 
 | parameter | type | in | description |
 |-----------|------|----|-------------|
-| `Authorization` | string | header | jwt token |
+| `Authorization` | string | header | token |
 
-Returns the token payload data as *json* object. Returns with an error (`400 Bad Request`) if the token can not be verified.
+Returns the token payload data as *json* object.
+Returns with an error (`400 Bad Request`) if the token can not be verified.
 
 ---
 
@@ -105,9 +136,12 @@ Returns the token payload data as *json* object. Returns with an error (`400 Bad
 DELETE /tokens
 ```
 
-Destroy all tokens.
+Invalidate all login tokens.
+So all clients have to log in again when they want to create new session tokens.
 
-You need to pass your token as header parameter: `Authorization: Bearer xyz123`.
+> NOTE: the existing session tokens will remain in place until they expire
+
+You need to pass your session token as header parameter: `Authorization: Bearer xyz123`.
 
 | parameter | type | in | description |
 |-----------|------|----|-------------|
@@ -169,7 +203,6 @@ $ npm run docker:build
 ```
 
 Start the docker container with `npm run docker:run` (or use `docker:start` which starts the doorkeeper service in the background) or run an interactive shell session via `npm run docker:run:shell`
-
 
 
 have fun 🚀
