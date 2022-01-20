@@ -46,7 +46,7 @@ In order to generate a login token, the _doorkeeper_ service must rely on a (pos
 
 When generating a session token based on a login token, the content of the login token is trusted and it is therefore no longer necessary to ask the (possibly) external user provider for it, but the store is still accessed (of course only login tokens issued by the service itself are trusted)
 
-> NOTE: The current implementation of the doorkeeper service uses a simple `users.json` file as user database (at this point the developer is encouraged to add more enhanced user providers and extended login-is-valid verifications :wink:)
+> NOTE: The current implementation of the doorkeeper service uses a simple `users.json` file as user provider (at this point the developer is encouraged to add more enhanced user providers and extended login-is-valid verifications :wink:)
 
 The goal of the whole procedure is to give the client a valid session token that can be used to access other api calls from your actual web app services.
 The session token contains the `uid`, `displayName` and `roles`, these properties can be used by other services for authorization.
@@ -178,7 +178,10 @@ For development `npm run test:watch` is meant, which _only_ test against the in-
 
 ### Generate Diagrams
 
-> :coffee: TODO write docs
+The diagrams (in this README) are generated using [Mermaid.js](https://mermaid-js.github.io/mermaid/#/).
+To use _mermaid_, the docker image must first be loaded once: `npm run pull-mermaid`.
+
+The diagrams (which can be found in [./docs/](./docs)) are then generated with `npm run generate-diagrams`
 
 
 ### Run a local server
