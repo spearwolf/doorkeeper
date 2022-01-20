@@ -1,6 +1,6 @@
 # doorkeeper
 
-A simple and unobtrusive token management service.
+A simple and unobtrusive token management µ-service.
 
 The _doorkeeper_ service uses strictly tokens in [JSON Web Token](https://jwt.io/) format.
 
