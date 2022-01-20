@@ -1,0 +1,7 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#eaf0e2",
+    "fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif"
+  }
+}

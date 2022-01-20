@@ -6,3 +6,9 @@ redis:
     url: "redis://redis-test:16379"
 
 staticUsersFile: config/test-users.json
+
+token:
+  login:
+    lastLoginExpire: 1
+  session:
+    expiresIn: 1s
