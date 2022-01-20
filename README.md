@@ -63,6 +63,10 @@ To decode and verify the content of the session token, the doorkeeper service is
 
 ![Create session token](./docs/create-session-token.mmd.svg)
 
+### Token Payload
+
+> :coffee: TODO write docs: uid, displayName, roles...
+
 
 ## Service Endpoints
 
@@ -150,7 +154,7 @@ You need to pass your session token as header parameter: `Authorization: Bearer 
 |-----------|------|----|-------------|
 | `Authorization` | string | header | jwt token |
 
-> :warning: SECURITY NOTE: for this api call the `admin` role must be present in the token data props under the `roles` key!
+> :guard: SECURITY NOTE: for this api call the `admin` role must be present in the token data props under the `roles` key!
 
 ---
 
