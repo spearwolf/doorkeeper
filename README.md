@@ -28,8 +28,10 @@ Another design decision in the architecture of the service is the _principle of 
   - [Development](#development)
     - [Setup](#setup)
     - [Testing](#testing)
+    - [Generate Diagrams](#generate-diagrams)
     - [Run a local server](#run-a-local-server)
     - [Build docker image](#build-docker-image)
+  - [Configuration](#configuration)
 
 
 ## How it works
@@ -173,6 +175,12 @@ For development `npm run test:watch` is meant, which _only_ test against the in-
 
 > :point_right: NOTE: at the moment we use _mocha_ as test runner and not _jest_ because _jest_ support for native es6 imports is still experimental AND _jest_ runs incredibly slow in a docker context 😢
 
+
+### Generate Diagrams
+
+> :coffee: TODO write docs
+
+
 ### Run a local server
 
 In order to run a local server, you need to start a redis instance:
@@ -203,6 +211,11 @@ $ npm run docker:build
 ```
 
 Start the docker container with `npm run docker:run` (or use `docker:start` which starts the doorkeeper service in the background) or run an interactive shell session via `npm run docker:run:shell`
+
+
+## Configuration
+
+> :coffee: TODO write docs
 
 
 have fun 🚀
