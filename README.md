@@ -128,6 +128,7 @@ You need to pass your token (this can be either a login or a session token) as h
 | `Authorization` | string | header | token |
 
 Returns the token payload data as *json* object.
+
 Returns with an error (`400 Bad Request`) if the token can not be verified.
 
 ---
