@@ -1,7 +1,8 @@
 tokenStore: in-memory
 destroyAllTokensAtStartup: true
 
-staticUsersFile: config/test-users.json
+users:
+  staticUsersFile: config/test-users.json
 
 token:
   login:

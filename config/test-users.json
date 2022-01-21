@@ -1,7 +1,9 @@
 {
   "admin": {
-    "secret": "top-secret",
-    "roles": ["admin"],
+    "secret": "2a40073fc2f7190af922eecc9daf35bb7db467a61cc6b117db1651310d449a72",
+    "roles": [
+      "admin"
+    ],
     "displayName": "admin",
     "uid": "8f68a0d9-2c8a-4b8e-835a-d0a58e418c75"
   }
