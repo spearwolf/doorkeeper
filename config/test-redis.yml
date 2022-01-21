@@ -5,7 +5,8 @@ redis:
   client:
     url: "redis://redis-test:16379"
 
-staticUsersFile: config/test-users.json
+users:
+  staticUsersFile: config/test-users.json
 
 token:
   login:

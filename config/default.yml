@@ -4,7 +4,11 @@ log:
   pretty: true
   httpRequests: false
 
-staticUsersFile: config/users.json
+users:
+  staticUsersFile: config/users.json
+  passwordHashSecrets:
+    - door
+    - keeper
 
 tokenStore: redis
 destroyAllTokensAtStartup: false

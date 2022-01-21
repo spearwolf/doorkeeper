@@ -1,13 +1,22 @@
 {
   "admin": {
-    "secret": "secret666",
-    "roles": ["admin"],
+    "secret": "f0b199c50639080e194c6270165c68b2d32752165fbb86a465e994ca9cfa12cd",
+    "roles": [
+      "admin"
+    ],
     "displayName": "admin",
     "uid": "94b980b7-5307-47d7-a6db-4a33d1c3e1e2"
   },
-  "plah": {
-    "secret": "bar!",
-    "displayName": "plah",
-    "uid": "0c516e57-57b9-4232-9398-51b170fb408c"
+  "garfield": {
+    "secret": "9917c44c25c0a3d8a1e3ab47a7849a9c583b50dbcb7dd95dddc156dc1a4c79fd",
+    "displayName": "garfield",
+    "roles": [],
+    "uid": "725a0231-30a4-421e-b409-495d7225eca5"
+  },
+  "gerald": {
+    "secret": "b4f905eab7928ad3c9acbedc7d24fe54e31e787e9db7cda6a91449249e131793",
+    "displayName": "gerald",
+    "roles": [],
+    "uid": "272aa3d5-c79b-4a26-9a6c-53713ed09630"
   }
 }
