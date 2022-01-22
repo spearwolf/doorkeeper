@@ -21,19 +21,22 @@ so, let us build the next big thing and have fun 🚀
   - [How it works](#how-it-works)
     - [Login via Password](#login-via-password)
     - [Create Session Token](#create-session-token)
+    - [Token Payload](#token-payload)
   - [Service Endpoints](#service-endpoints)
     - [Routes Overview](#routes-overview)
     - [Create Login Token _aka_ Login via Password](#create-login-token-aka-login-via-password)
     - [Create Session Token](#create-session-token-1)
     - [Verify Token](#verify-token)
     - [Destroy All Tokens](#destroy-all-tokens)
+  - [Configuration](#configuration)
+    - [Overview of the main settings](#overview-of-the-main-settings)
+    - [Redis store related settings](#redis-store-related-settings)
   - [Development](#development)
     - [Setup](#setup)
     - [Testing](#testing)
     - [Generate Diagrams](#generate-diagrams)
     - [Run a local server](#run-a-local-server)
     - [Build docker image](#build-docker-image)
-  - [Configuration](#configuration)
 
 
 ## How it works
@@ -160,6 +163,48 @@ You need to pass your session token as header parameter: `Authorization: Bearer 
 
 ---
 
+## Configuration
+
+For reading the config files [node-config](https://github.com/lorenwest/node-config) is used. All rules defined there apply.
+
+The config files are located in the directory [./config/](./config/).
+It is accepted `*.json` but also `*.yml` formats.
+
+Which files are loaded depends on the environment, respectively the environment variable `NODE_ENV`
+if this is not set, it is equivalent to `NODE_ENV=development`
+
+Some config properties can also be set by environment variables, which are defined in [custom-environment-variables.yml](./config/custom-environment-variables.yml)
+
+### Overview of the main settings
+
+| key | type | default value | description |
+|-----|------|---------------|-------------|
+| port | number | 6100 | the http port for the _doorkeeper_ service |
+| log.pretty | boolean | true | if true all log messages are in human readable form, otherwise a json format is used |
+| log.httpRequests | boolean | false | log all http requests. quite verbose. _your decision if this is what you need_ |
+| authKey | string | `Authorization` | the http header parameter in which the token is expected |
+| jwt.iss | string | `doorkeeper` | when creating a token this value is entered as issuer |
+| token.login.ttl | number | 1209600 | the login token time to live in seconds. default is _two weeks_ |
+| token.login.lastLoginExpire | number | 604800 | if a login token has not been used for this duration (specified in seconds), it is automatically invalidated (deleted from the store) so that a new login is required. default is _7 days_ |
+| token.session.expiresIn | string  or number | `1h` | the expiration for the session token. [see here for a detailed format description](https://github.com/auth0/node-jsonwebtoken#token-expiration-exp-claim) |
+| keyFile.public | string | `keys/public.pem` | path to the _public token key_ file. this key is needed by anyone who wants to verify the tokens. so it is safe and okay to make this key available to other services |
+| keyFile.private | string | `keys/private.pem` | path to the _public token key_ file. this key is used to sign the tokens. _this key should remain secret!_ |
+| keyFile.passphrase | string | *** | the passphrase for the private token key. _you never know_ |
+| users.staticUSersFile | string | `config/users.json` | path to the _users.json_ file. you should definitiv create your own _users.json_ |
+| users.passwordHashSecrets | string[] | *** | the secrets used to encrypt the passwords in the _users.json_ file. you can use the `scripts/set-user-secret.mjs` to update or create users in a _users.json_ file |
+| tokenStore | string | `redis` | `in-memory` and `redis` are the only possible stores at the moment |
+| destroyAllTokensAtStartup | boolean | false | yes, it does exactly what you think :) actually more suitable for testing |
+
+### Redis store related settings
+
+| key | type | default value | description |
+|-----|------|---------------|-------------|
+| redis.client | object | `{ url: "redis://127.0.0.1" }`| the [node-redis](https://redis.js.org/) client config |
+| namespace | string | `doorkeeeper.dev` | the prefix for all redis keys used by the _doorkeeper_ service |
+| token.namespace | string | `token` | the prefix for all token keys. a token key looks like this: `doorkeeper.dev.token.{UID}` |
+| user.namespace | string | `user` | the prefix for all user keys. a user key looks for example like this: `doorkeeper.dev.user.lastLoginTime.{UID}` |
+
+
 ## Development
 
 ### Setup
@@ -221,9 +266,4 @@ $ npm run docker:build
 ```
 
 Start the docker container with `npm run docker:run` (or use `docker:start` which starts the doorkeeper service in the background) or run an interactive shell session via `npm run docker:run:shell`
-
-
-## Configuration
-
-> :coffee: TODO write docs
 
