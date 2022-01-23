@@ -70,8 +70,18 @@ To decode and verify the content of the session token, the doorkeeper service is
 
 ### Token Payload
 
-> :coffee: TODO write docs: uid, displayName, roles...
+A list of the data contained in the _session token_ follows:
 
+:point_right: _at this point the hint that the_ doorkeeper _service can and should be adapted and extended if these properties are not enough_
+
+| key | type | source of truth | description |
+|-----|------|----------------------------|-------------|
+| `iss` | string | doorkeeper | normally it is set to `doorkeeper`, but this is also customizable in config  |
+| `toktyp` | string | doorkeeper | the token type. if this token is a _session_ token it will always be `session`  |
+| `sub` | string | doorkeeper | the _login id_ which was used for the login |
+| `uid` | string | user provider | the _user id_ &mdash; is provided by the user provider |
+| `displayName` | string | user provider | the public display name for the user. if the user provider does not specify a value here, then it will be the same as in `sub` |
+| `roles` | string[] | user provider | an array of string based permissions or roles. it is up to the respective application to interpret these permissions. the _doorkeeper_ service currently only knows the `admin` role. if no roles have been assigned for this token, this field can also be _undefined_ |
 
 ## Service Endpoints
 
