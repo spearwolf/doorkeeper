@@ -38,7 +38,7 @@ so, let us build the next big thing and have fun 🚀
     - [Run a local server](#run-a-local-server)
     - [Build docker image](#build-docker-image)
     - [Publish docker image to the github container registry](#publish-docker-image-to-the-github-container-registry)
-      - [1. Find out the docker image tag with](#1-find-out-the-docker-image-tag-with)
+      - [1. Find out the docker image tag with](#1-find-out-the-docker-image-tag)
       - [2. Tag the docker image](#2-tag-the-docker-image)
       - [3. Push it to the registry](#3-push-it-to-the-registry)
 
