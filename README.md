@@ -37,6 +37,10 @@ so, let us build the next big thing and have fun 🚀
     - [Generate Diagrams](#generate-diagrams)
     - [Run a local server](#run-a-local-server)
     - [Build docker image](#build-docker-image)
+    - [Publish docker image to the github container registry](#publish-docker-image-to-the-github-container-registry)
+      - [1. Find out the docker image tag with](#1-find-out-the-docker-image-tag-with)
+      - [2. Tag the docker image](#2-tag-the-docker-image)
+      - [3. Push it to the registry](#3-push-it-to-the-registry)
 
 
 ## How it works
@@ -277,3 +281,22 @@ $ npm run docker:build
 
 Start the docker container with `npm run docker:run` (or use `docker:start` which starts the doorkeeper service in the background) or run an interactive shell session via `npm run docker:run:shell`
 
+
+### Publish docker image to the github container registry
+
+After you build the docker image locally you can push it to the [http://ghcr.io](http://ghcr.io)
+
+#### 1. Find out the docker image tag with
+```sh
+$ docker images | grep doorkeeper
+```
+
+#### 2. Tag the docker image
+```sh
+$ docker tag c958b8d5e94c ghcr.io/spearwolf/doorkeeper:latest
+```
+
+#### 3. Push it to the registry
+```sh
+$ docker push ghcr.io/spearwolf/doorkeeper:latest
+```
