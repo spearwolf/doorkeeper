@@ -9,14 +9,14 @@ COPY package*.json /app/
 COPY doorkeeper.js /app/
 COPY nodemon.json /app/
 
-RUN npm install --only=production
+RUN npm install
 
 ENV NODE_ENV production
 
 RUN mkdir -p /app/config
-COPY config/default.json /app/config/
-COPY config/custom-environment-variables.json /app/config/
-COPY config/production.json /app/config/
+COPY config/default.yml /app/config/
+COPY config/custom-environment-variables.yml /app/config/
+COPY config/production.yml /app/config/
 COPY config/users.json /app/config/
 
 RUN mkdir -p /app/keys
