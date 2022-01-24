@@ -14,7 +14,8 @@ describe("POST /token/login - using static users", () => {
       .end(done);
   });
 
-  it("should respond with error when secret from static users file is wrong for the given login id, but otherwise the secret would be correct", async () => {
+  // XXX since there is no other user provider then the built-in users.json we can not test this behaviour
+  it.skip("should respond with error when secret from static users file is wrong for the given login id, but otherwise the secret would be correct", async () => {
     await supertest(app)
       .post("/token/login")
       .send({ login: "admin", password: "foo-admin" })

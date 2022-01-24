@@ -9,7 +9,7 @@ describe("POST /token/login", () => {
   it("should respond with success when login credentials sent as json data", (done) => {
     supertest(app)
       .post("/token/login")
-      .send({ login: "bar", password: "foobar" })
+      .send({ login: "bar", password: "barplah" })
       .expect(200)
       .end(done);
   });
@@ -18,7 +18,7 @@ describe("POST /token/login", () => {
     supertest(app)
       .post("/token/login")
       .send("login=foo")
-      .send("password=foobar")
+      .send("password=barfoo")
       .expect(200)
       .end(done);
   });

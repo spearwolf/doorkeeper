@@ -24,7 +24,7 @@ describe("DELETE /tokens", () => {
   });
 
   it("should NOT destroy all tokens if 'admin' role is not in token", async () => {
-    const loginToken = await login("foo", "foobar");
+    const loginToken = await login("foo", "barfoo");
     const sessionToken = await fetchSessionToken(loginToken);
 
     await supertest(app)

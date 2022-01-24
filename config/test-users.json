@@ -6,5 +6,17 @@
     ],
     "displayName": "admin",
     "uid": "8f68a0d9-2c8a-4b8e-835a-d0a58e418c75"
+  },
+  "foo": {
+    "secret": "1f82760a7d13f5f931b188db43b6c685842c0ce8df44888fb2358d13ea75816e",
+    "displayName": "foo",
+    "roles": [],
+    "uid": "9bce179c-6881-4545-9f57-42c1c3f4e589"
+  },
+  "bar": {
+    "secret": "4cb2d0dfddad954bdac14f0952cad7b536eac13a3ff0f0ba5ba1c1788ca88012",
+    "displayName": "bar",
+    "roles": [],
+    "uid": "12ce7229-353c-4fe4-bec3-f0bc3b453aa8"
   }
 }

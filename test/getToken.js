@@ -13,7 +13,7 @@ describe("GET /token", () => {
   it("should respond with decoded token content", (done) => {
     supertest(app)
       .post("/token/login")
-      .send({ login: "bar", password: "foobar" })
+      .send({ login: "bar", password: "barplah" })
       .expect(200)
       .end((err, res) => {
         expect(err).to.be.null;
