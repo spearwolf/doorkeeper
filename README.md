@@ -286,7 +286,7 @@ Start the docker container with `npm run docker:run` (or use `docker:start` whic
 
 After you build the docker image locally you can push it to the [http://ghcr.io](http://ghcr.io)
 
-#### 1. Find out the docker image tag with
+#### 1. Find out the docker image tag
 ```sh
 $ docker images | grep doorkeeper
 ```
