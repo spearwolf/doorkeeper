@@ -16,7 +16,7 @@ so, let us build the next big thing and have fun 🚀
 
 ## Project Status
 
-⚠️ _doorkeeper_ is still beta software—missing features and bugs are to be expected! We are quickly working our way towards a stable, production-ready v1.0 release, but we are still finalizing some of _doorkeeper_'s APIs
+⚠️ __doorkeeper is still beta software—missing features and bugs are to be expected!__ We are quickly working our way towards a stable, production-ready v1.0 release, but we are still finalizing some of _doorkeeper_'s APIs
 
 ## Table of Contents
 
