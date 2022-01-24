@@ -14,9 +14,14 @@ Another design decision in the architecture of the service is the _principle of 
 
 so, let us build the next big thing and have fun 🚀
 
+## Project Status
+
+⚠️ _doorkeeper_ is still beta software—missing features and bugs are to be expected! We are quickly working our way towards a stable, production-ready v1.0 release, but we are still finalizing some of _doorkeeper_'s APIs
+
 ## Table of Contents
 
 - [doorkeeper](#doorkeeper)
+  - [Project Status](#project-status)
   - [Table of Contents](#table-of-contents)
   - [How it works](#how-it-works)
     - [Login via Password](#login-via-password)
