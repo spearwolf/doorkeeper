@@ -209,7 +209,7 @@ Some config properties can also be set by environment variables, which are defin
 | `keyFile.public` | string | `keys/public.pem` | path to the _public token key_ file. this key is needed by anyone who wants to verify the tokens. so it is safe and okay to make this key available to other services |
 | `keyFile.private` | string | `keys/private.pem` | path to the _public token key_ file. this key is used to sign the tokens. _this key should remain secret!_ |
 | `keyFile.passphrase` | string | *** | the passphrase for the private token key. _you never know_ |
-| `users.staticUSersFile` | string | `config/users.json` | path to the _users.json_ file. you should definitiv create your own _users.json_ |
+| `users.staticUsersFile` | string | `config/users.json` | path to the _users.json_ file. you should definitiv create your own _users.json_ |
 | `users.passwordHashSecrets` | string[] | *** | the secrets used to encrypt the passwords in the _users.json_ file. you should use `scripts/set-user-secret.mjs` to update or create users in a _users.json_ file |
 | `tokenStore` | string | `redis` | `in-memory` and `redis` are the only possible stores at the moment |
 | `destroyAllTokensAtStartup` | boolean | false | yes, it does exactly what you think :) actually more suitable for testing |
