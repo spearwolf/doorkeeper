@@ -10,13 +10,13 @@ The _doorkeeper_ service uses strictly tokens in [JSON Web Token](https://jwt.io
 
 This µ-service is intended as a starting point for the development of distributed web apps/services that need token-based verification. The architecture is designed in such a way that further required business logic can be easily inserted and extend the existing code base.
 
-Another design decision in the architecture of the service is the _principle of minimalism_. as little as possible is written into the database and if e.g. a token expires, it is also deleted from the database. this also applies to the logging (there are really only a few meaningful outputs in the production log) and no detailed error messages are sent to the client (this also benefits the security in the end)
+Another design decision of this service is the _principle of minimalism_. as little as possible is written into the database and if e.g. a token expires, it is also deleted from the database. this also applies to the logging (there are really only a few meaningful outputs in the production log) and no detailed error messages are sent to the client (this also benefits the security in the end)
 
 so, let us build the next big thing and have fun 🚀
 
 ## Project Status
 
-⚠️ __doorkeeper is still beta software—missing features and bugs are to be expected!__ We are quickly working our way towards a stable, production-ready v1.0 release, but we are still finalizing some of _doorkeeper_'s APIs
+⚠️ __doorkeeper is intended for productive use - but so far only used in development environments.__ so attentiveness is required when using it. contributions, issue reports or pull requests are always welcome!
 
 ## Table of Contents
 
