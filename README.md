@@ -16,7 +16,7 @@ so, let us build the next big thing and have fun 🚀
 
 ## Project Status
 
-> ⚠️ __doorkeeper is intended for productive use - but so far only used in development environments.__ so attentiveness is required when using it.
+> ⚠️ __doorkeeper is intended for productive use - but so far only used in development environments.__ so attentiveness is required when using it in the wild.
 
 > ✔️ this is open source - using the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0). contributions, issue reports or pull requests are always welcome!
 
